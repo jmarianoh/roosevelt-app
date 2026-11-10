@@ -4,6 +4,7 @@ import { ActivityPage } from '../../features/activity/ActivityPage';
 import { ExpensesPage } from '../../features/expenses/ExpensesPage';
 import { ExpenseReviewModal } from '../../features/review/ExpenseReviewModal';
 import { useExpenseReview } from '../../features/review/useExpenseReview';
+import { ResidentsPage } from '../../features/residents/ResidentsPage';
 import { SettingsPage } from '../../features/settings/SettingsPage';
 import { StatementsPage } from '../../features/statements/StatementsPage';
 import { SummaryPage } from '../../features/summary/SummaryPage';
@@ -45,6 +46,7 @@ export function AppShell({ user }: { user: User }) {
           {page === 'Egresos' && <ExpensesPage onReview={review.open} />}
           {page === 'Carga mensual' && <UploadPage upload={upload} />}
           {page === 'Actividad' && <ActivityPage />}
+          {page === 'Copropietarios y Residentes' && <ResidentsPage />}
           {page === 'Ajustes' && <SettingsPage />}
         </div>
         <PageFooter />

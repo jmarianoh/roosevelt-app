@@ -1,6 +1,6 @@
-import { FileCheck2, History, Home, Landmark, Upload, Users, type LucideIcon } from 'lucide-react';
+import { FileCheck2, History, Home, Landmark, Upload, Users, Building2, type LucideIcon } from 'lucide-react';
 
-export type PageId = 'Resumen' | 'Cartolas' | 'Egresos' | 'Carga mensual' | 'Actividad' | 'Ajustes';
+export type PageId = 'Resumen' | 'Cartolas' | 'Egresos' | 'Carga mensual' | 'Actividad' | 'Copropietarios y Residentes' | 'Ajustes';
 
 export type Navigate = (page: PageId) => void;
 
@@ -55,6 +55,13 @@ export const PAGES: PageConfig[] = [
     section: 'sistema',
     title: 'Registro de actividad',
     subtitle: 'Historial de conciliaciones y cambios registrados por el equipo.',
+  },
+  {
+    id: 'Copropietarios y Residentes',
+    icon: Building2,
+    section: 'sistema',
+    title: 'Copropietarios y residentes',
+    subtitle: 'Padrón por departamento. Los correos se muestran ofuscados.',
   },
   {
     id: 'Ajustes',

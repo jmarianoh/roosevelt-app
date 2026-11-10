@@ -200,3 +200,19 @@ export interface AuditEntry {
   created_at: string;
   user_name: string | null;
 }
+
+export interface ResidentRow {
+  unit: string;
+  name: string;
+  role: string;
+  resides: boolean;
+  pays: boolean;
+  votes: boolean;
+  email: string; // ofuscado por el servidor
+  phone: string;
+}
+
+export interface ResidentsResponse {
+  summary: { total: number; residentes: number; arrendadas: number; sinConfirmar: number };
+  rows: ResidentRow[];
+}
