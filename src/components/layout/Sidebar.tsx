@@ -1,5 +1,6 @@
 import { ArrowRight, ChevronDown, CircleHelp, Landmark, LogOut, X } from 'lucide-react';
-import { PAGES, type Navigate, type PageId } from '../../config/pages';
+import { Fragment } from 'react';
+import { PAGES, SECTIONS, type Navigate, type PageId, type SectionId } from '../../config/pages';
 import { useDashboard } from '../../context/DashboardContext';
 import { useSession } from '../../context/SessionContext';
 import { initials } from '../../lib/format';
@@ -25,7 +26,7 @@ export function Sidebar({
   const { pending } = useDashboard();
   const { logout } = useSession();
 
-  const renderNav = (section: 'admin' | 'records') => (
+  const renderNav = (section: SectionId) => (
     <nav>
       {PAGES.filter((item) => item.section === section).map(({ id, icon: Icon }) => (
         <button
@@ -68,10 +69,12 @@ export function Sidebar({
         <ChevronDown size={14} className="muted" />
       </div>
 
-      <div className="nav-caption">ADMINISTRACIÓN</div>
-      {renderNav('admin')}
-      <div className="nav-caption second-cap">REGISTROS</div>
-      {renderNav('records')}
+      {SECTIONS.map(({ id, label }, i) => (
+        <Fragment key={id}>
+          <div className={`nav-caption ${i > 0 ? 'second-cap' : ''}`}>{label.toUpperCase()}</div>
+          {renderNav(id)}
+        </Fragment>
+      ))}
 
       <div className="sidebar-bottom">
         <div className="support-card">
