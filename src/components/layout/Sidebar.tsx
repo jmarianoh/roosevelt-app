@@ -91,7 +91,7 @@ export function Sidebar({
           <div className="avatar">{initials(user.name)}</div>
           <div className="user-info">
             <strong>{user.name}</strong>
-            <span>{user.role === 'tesorero' ? 'Tesorero' : 'Comité'}</span>
+            <span>Comité</span>
           </div>
           <button className="icon-button" title="Cerrar sesión" onClick={logout}>
             <LogOut size={16} />

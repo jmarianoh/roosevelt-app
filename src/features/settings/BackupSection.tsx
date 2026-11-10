@@ -23,7 +23,7 @@ export function BackupSection() {
       const body = new FormData();
       body.append('file', file);
       await api('/backup/restore', { method: 'POST', body });
-      notify('Respaldo restaurado. Inicia sesión de nuevo con el tesorero del respaldo.');
+      notify('Respaldo restaurado. Inicia sesión de nuevo con las credenciales del respaldo.');
       clearSession();
     } catch (error) {
       notify(errorMessage(error));

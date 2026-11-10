@@ -56,7 +56,7 @@ export function MembersSection() {
             <span>{member.email}</span>
           </div>
           <span className={`role-pill ${member.role}`}>
-            {member.role === 'tesorero' ? 'Tesorero' : 'Comité'}
+            Comité
           </span>
         </div>
       ))}

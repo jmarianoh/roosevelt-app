@@ -1,4 +1,4 @@
-export type UserRole = 'tesorero' | 'comite';
+export type UserRole = 'comite';
 export type DocumentStatus = 'pendiente' | 'validado' | 'observado';
 export type ApprovalStatus = 'pendiente' | 'aprobado' | 'observado';
 
@@ -14,7 +14,7 @@ export interface TeamMember extends User {
 }
 
 export interface SessionResponse {
-  userCount: number;
+  needsSetup: boolean;
   user?: User | null;
 }
 

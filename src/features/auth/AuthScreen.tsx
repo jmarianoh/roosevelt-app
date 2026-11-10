@@ -7,7 +7,7 @@ import { errorMessage } from '../../lib/api';
 export function AuthScreen() {
   const { needsSetup, authenticate } = useSession();
   const { notify } = useToast();
-  const [form, setForm] = useState<Credentials>({ name: '', email: '', password: '' });
+  const [form, setForm] = useState<Credentials>({ name: '', email: '', password: '', token: '' });
   const [busy, setBusy] = useState(false);
 
   async function handleSubmit(event: FormEvent) {
@@ -34,7 +34,7 @@ export function AuthScreen() {
           </span>
         </div>
         <div className="auth-copy">
-          <h1>{needsSetup ? 'Crea la cuenta del tesorero' : 'Inicia sesión'}</h1>
+          <h1>{needsSetup ? 'Crea la primera cuenta del comité' : 'Inicia sesión'}</h1>
           <p>
             {needsSetup
               ? 'Tus cartolas y respaldos se guardan localmente en este equipo.'
@@ -76,9 +76,21 @@ export function AuthScreen() {
               onChange={(event) => setForm({ ...form, password: event.target.value })}
             />
           </label>
+          {needsSetup && (
+            <label>
+              Token de instalación
+              <input
+                type="password"
+                autoComplete="off"
+                placeholder="Valor de BOOTSTRAP_TOKEN"
+                value={form.token}
+                onChange={(event) => setForm({ ...form, token: event.target.value })}
+              />
+            </label>
+          )}
           <button className="primary full" disabled={busy}>
             {busy ? <LoaderCircle className="spin" size={17} /> : <LockKeyhole size={17} />}{' '}
-            {needsSetup ? 'Crear cuenta del tesorero' : 'Ingresar'}
+            {needsSetup ? 'Crear cuenta del comité' : 'Ingresar'}
           </button>
         </form>
         <div className="auth-foot">

@@ -15,6 +15,7 @@ export interface Credentials {
   name: string;
   email: string;
   password: string;
+  token?: string;
 }
 
 interface SessionContextValue {
@@ -37,7 +38,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     api<SessionResponse>('/session')
       .then((session) => {
-        if (!session.userCount) setNeedsSetup(true);
+        if (session.needsSetup) setNeedsSetup(true);
         else if (session.user) setUser(session.user);
       })
       .catch(() => notify('No se pudo conectar con el servidor local.'))
