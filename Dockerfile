@@ -1,12 +1,12 @@
-# ---- Stage 1: build ----
-FROM node:22-alpine AS build
+# Stage 1: Build
+FROM node:24-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
 
-# ---- Stage 2: runtime ----
+# Stage 2: Serve SPA con nginx (proxy /api hacia la API)
 FROM nginx:1.27-alpine AS runtime
 COPY nginx.conf.template /etc/nginx/templates/default.conf.template
 COPY --from=build /app/dist /usr/share/nginx/html
