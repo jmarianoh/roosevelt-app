@@ -4,6 +4,7 @@ import { App } from './App';
 import { SessionProvider } from './context/SessionContext';
 import { ToastProvider } from './context/ToastContext';
 import './style.css';
+import './theme.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

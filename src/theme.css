@@ -1,0 +1,93 @@
+/* Capa visual (estilo SaaS sobrio). Va después de style.css y sobrescribe tokens y componentes base. */
+:root {
+  --ink: #1a1f1c;
+  --muted: #6b726c;
+  --line: #e6e8e5;
+  --cream: #f6f7f5;
+  --shadow: 0 1px 2px rgba(16, 24, 20, 0.05), 0 8px 24px rgba(16, 24, 20, 0.06);
+  --ring: 0 0 0 3px rgba(39, 91, 69, 0.16);
+  background: var(--cream);
+  color: var(--ink);
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+/* Shell */
+.sidebar { width: 252px; background: #fbfbfa; border-right: 1px solid var(--line); }
+.main-area { margin-left: 252px; }
+.brand-name { letter-spacing: 1.2px; font-size: 14px; }
+.building-card { height: auto; background: #fff; border-radius: 10px; padding: 10px; }
+.nav-caption { font-size: 11px; letter-spacing: 0.6px; color: #8a918b; text-transform: uppercase; font-weight: 600; }
+.nav-item { height: 36px; font-size: 13.5px; font-weight: 500; color: #4a524c; border-radius: 8px; transition: background 0.12s, color 0.12s; }
+.nav-item:hover { background: #f0f2ef; color: var(--ink); }
+.nav-item.active { background: #fff; color: var(--green); font-weight: 600; box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgba(16, 24, 20, 0.05); }
+.topbar { background: rgba(251, 251, 250, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.breadcrumb { font-size: 13px; }
+.local-pill { background: #fff; font-size: 12px; }
+.content { padding-top: 32px; }
+
+/* Cabecera de página */
+.page-head h1 { font-size: 26px; font-weight: 650; letter-spacing: -0.5px; color: var(--ink); }
+.page-head p { font-size: 14px; color: var(--muted); }
+.eyebrow { font-size: 11px; letter-spacing: 0.7px; }
+
+/* Tarjetas */
+.metric-card, .section-card { border: 1px solid var(--line); border-radius: 12px; background: #fff; box-shadow: 0 1px 2px rgba(16, 24, 20, 0.04); }
+.expense-metric:hover, .metric-card:hover { border-color: #cfd6d0; box-shadow: var(--shadow); }
+.metric-value { font-size: 26px; font-weight: 650; letter-spacing: -0.6px; font-variant-numeric: tabular-nums; }
+.section-header h2 { font-size: 15px; font-weight: 650; }
+.section-header p { font-size: 12.5px; color: var(--muted); }
+
+/* Botones e inputs */
+.primary, .secondary { height: 36px; border-radius: 8px; font-size: 13px; font-weight: 550; transition: background 0.12s, border-color 0.12s, box-shadow 0.12s; }
+.primary { box-shadow: 0 1px 2px rgba(16, 24, 20, 0.12); }
+.secondary { border-color: #dcdfdb; box-shadow: 0 1px 2px rgba(16, 24, 20, 0.04); }
+.primary:focus-visible, .secondary:focus-visible, .nav-item:focus-visible, .icon-button:focus-visible { outline: none; box-shadow: var(--ring); }
+.searchbox, .filter-select, .period-select, .invite-row input, .auth-form > label input, .comment-label textarea { border-color: #dcdfdb; border-radius: 8px; }
+.searchbox:focus-within, .filter-select:focus, .invite-row input:focus, .auth-form > label input:focus, .comment-label textarea:focus { border-color: var(--green); box-shadow: var(--ring); outline: none; }
+.searchbox, .filter-select, .filterbar > .secondary { height: 34px; }
+.searchbox input, .filter-select { font-size: 13px; }
+
+/* Tablas */
+.filterbar { background: #fafaf9; padding: 10px 18px; }
+thead th { font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: #7b827c; background: #fafaf9; border-bottom: 1px solid var(--line); padding: 10px 12px; }
+tbody td { font-size: 13px; color: #3b423d; border-top: 1px solid #eff0ee; padding: 12px; }
+tbody tr:hover { background: #fafaf9; }
+.desc-cell strong, .expense-table-title strong { font-size: 13px; }
+.mini-table-head { font-size: 11px; }
+.status-pending, .status-ok { font-size: 12px; font-weight: 500; }
+.exact-pill, .near-pill, .used-tag, .equal-pill, .role-pill { font-weight: 550; }
+
+/* Modal y avisos */
+.review-modal { border-radius: 14px; box-shadow: 0 24px 64px rgba(16, 24, 20, 0.22); }
+.modal-backdrop { background: rgba(16, 24, 20, 0.45); }
+.modal-top h2 { font-size: 18px; font-weight: 650; }
+.toast { border-radius: 10px; box-shadow: var(--shadow); font-size: 13px; }
+.notice { border-radius: 10px; }
+
+/* Login */
+.auth-copy h1 { font-weight: 650; }
+.auth-form > label { font-size: 13px; }
+.auth-form > label input { height: 44px; font-size: 14px; }
+.auth-copy p { font-size: 14px; }
+
+@media (max-width: 1120px) { .main-area { margin-left: 220px; } .sidebar { width: 220px; } }
+@media (max-width: 760px) {
+  .main-area { margin-left: 0; }
+  .sidebar { width: 272px; }
+  .content { padding-top: 22px; }
+  .metric-value { font-size: 21px; }
+  .page-head h1 { font-size: 22px; }
+}
+
+/* Login: tarjeta centrada */
+.auth-screen { display: grid; place-items: center; padding: 24px; background: radial-gradient(900px 420px at 50% -10%, #e4efe8, transparent 70%), var(--cream); }
+.auth-panel { width: min(400px, 100%); margin: 0; padding: 32px; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+.auth-brand { font-size: 13px; }
+.auth-copy { margin: 28px 0 22px; }
+.auth-copy h1 { font-size: 22px; letter-spacing: -0.4px; margin: 0 0 6px; }
+.auth-copy p { font-size: 14px; margin: 0; }
+.auth-foot { font-size: 12px; text-align: center; }
+.auth-screen { grid-template-columns: 1fr; }
+.auth-form > label input { font-weight: 400; }
+.auth-form > label input::placeholder { color: #9aa09a; font-weight: 400; }
+.auth-foot { align-items: flex-start; }

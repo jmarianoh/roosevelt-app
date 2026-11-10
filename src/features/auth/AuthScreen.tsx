@@ -30,16 +30,15 @@ export function AuthScreen() {
             <Landmark size={21} />
           </div>
           <span>
-            ROOSEVELT <span className="brand-soft">· TESORERÍA</span>
+            ROOSEVELT <span className="brand-soft">· COMITÉ</span>
           </span>
         </div>
         <div className="auth-copy">
-          <span className="eyebrow">ADMINISTRACIÓN DEL CONDOMINIO</span>
-          <h1>{needsSetup ? 'Comienza por crear la cuenta del tesorero.' : 'Bienvenido de vuelta.'}</h1>
+          <h1>{needsSetup ? 'Crea la cuenta del tesorero' : 'Inicia sesión'}</h1>
           <p>
             {needsSetup
               ? 'Tus cartolas y respaldos se guardan localmente en este equipo.'
-              : 'Ingresa a la administración del Edificio Roosevelt 1760.'}
+              : 'Supervisa la gestión del Edificio Roosevelt 1760.'}
           </p>
         </div>
         <form className="auth-form" onSubmit={handleSubmit}>
@@ -84,20 +83,6 @@ export function AuthScreen() {
         </form>
         <div className="auth-foot">
           <LockKeyhole size={14} /> Datos guardados en este equipo · Solo accesible en esta computadora
-        </div>
-      </div>
-      <div className="auth-art">
-        <div className="art-glow" />
-        <div className="art-quote">
-          <div className="art-symbol">R.</div>
-          <span className="eyebrow">EDIFICIO ROOSEVELT 1760</span>
-          <h2>
-            Una administración
-            <br />
-            clara para todos.
-          </h2>
-          <p>Cuentas al día. Documentos a mano. Cada decisión, registrada.</p>
-          <span className="art-bottom">CONCEPCIÓN · CHILE</span>
         </div>
       </div>
     </div>
